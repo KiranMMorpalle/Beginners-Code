@@ -1,0 +1,56 @@
+#include <bits/stdc++.h>
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main(){
+
+    int n;
+    cout<<"Enter n value :\n";
+    cin>>n;
+
+    int arr[n];
+    for(int i=0; i<n; i++){
+        cin>>arr[i];
+    }
+    
+//-----------------------brute force-------------------------------
+
+//unique
+    for(int i=0; i<n; i++){
+        bool res=true;
+        for(int j=0; j<n; j++){
+            if(arr[i]==arr[j] && i!=j){
+                res=false;
+                break;
+            }
+        }
+        if(res==true)
+            cout<<arr[i]<<" ";
+    }
+//------------------using : map-----------------------
+void findDuplicates(int arr[], int n) {
+    unordered_map<int, int> count;
+
+    for (int i = 0; i < n; i++) {
+        count[arr[i]]++;
+    }
+
+    for (auto it : count) {
+        if (it.second > 1) {
+            cout << it.first << " ";
+        }
+    }
+    int arr[] = {1, 2, 3, 1, 4, 2, 5, 2};
+
+    findDuplicates(arr, n); 
+
+
+=============================================================
+
+
+//c++ stl method to check a number is already present in array ?
+//java : contains()
+
+//     int target = 3;
+        // Find the element in the array
+//     auto it = find(begin(arr), end(arr), target);
